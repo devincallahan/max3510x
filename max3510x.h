@@ -43,7 +43,7 @@
 #define MAX3510X_MAX_HITCOUNT 6
 #endif
 
-#if defined(MAX35103) || defined(MAX35104)
+#if defined(MAX35103) || defined(MAX35104) || defined(MAX35101)
 
 typedef struct _rtc_date_t
 {

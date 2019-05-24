@@ -127,12 +127,12 @@ uint16_t max3510x_read_bitfield( max3510x_t p_max3510x, uint8_t reg_offset, uint
 static void send_opcode( max3510x_t p_max3510x, uint8_t code )
 {
 	// send an opcode to the MAX3510x
-	uint8_t result;
-	do
-	{
-		max3510x_spi_xfer( p_max3510x, &result, &code, sizeof(code) );
-	}
-	while( result != 0xFF );
+//	uint8_t result;
+//	do
+//	{
+		max3510x_spi_xfer( p_max3510x, NULL, &code, sizeof(code) );
+//	}
+//	while( result != 0xFF );
 }
 
 #if defined(MAX35103) || defined(MAX35104) || defined(MAX35101)

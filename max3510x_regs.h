@@ -36,6 +36,8 @@
 
 // Define the target chip type:  MAX35101, MAX35102, MAX35103, or max35104
 
+#include "board_definition.h"
+
 #if !defined(MAX35101) && !defined(MAX35102) && !defined(MAX35103) && !defined(MAX35104)
 #error Define the target chip type for max3510x_regs.h:  MAX35101, MAX35102, MAX35103, or max35104
 #endif
@@ -47,6 +49,7 @@
 // 'r' is token pasted, 'v' is not.
 #define MAX3510X_REG_SET(r,v)		(uint16_t)(( MAX3510X_REG_VALUE_MASK(r) & (v)) << MAX3510X_REG_##r##_SHIFT)
 #define MAX3510X_REG_GET(r,v)		( ((v) >> MAX3510X_REG_##r##_SHIFT ) & MAX3510X_REG_VALUE_MASK(r)  )
+#define MAX3510X_REG_CLR(r)		(~(MAX3510X_REG_SET(r,0xFFFF)))
 
 // This macro enables concise bitfield access using token pasting for both 'r' and 'v'
 #define MAX3510X_BF(r,v)			( (((uint16_t)( MAX3510X_REG_##r##_##v )) << MAX3510X_REG_##r##_SHIFT) & MAX3510X_REG_MASK(r) )

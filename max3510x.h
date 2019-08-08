@@ -114,7 +114,13 @@ max3510x_tof_results_t;
 typedef struct _max3510x_temp_results_t
 {
 	uint8_t					start_register;
+#if defined(MAX35104)
+	max3510x_fixed_t		t1;
+	max3510x_fixed_t		t2;
+#else
 	max3510x_fixed_t		temp[4];
+#endif
+
 #if defined(__BIG_ENDIAN)
 	uint8_t					undefined2;
 	uint8_t					temp_cycle_count;
@@ -122,7 +128,13 @@ typedef struct _max3510x_temp_results_t
 	uint8_t					temp_cycle_count;
 	uint8_t					undefined2;
 #endif
+
+#if defined(MAX35104)
+	max3510x_fixed_t		t1_avg;
+	max3510x_fixed_t		t2_avg;
+#else
 	max3510x_fixed_t		ave_temp[4];
+#endif
 }
 max3510x_temp_results_t;
 

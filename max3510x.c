@@ -591,12 +591,17 @@ double_t max3510x_fixed_to_double( const max3510x_fixed_t *p_number )
 
 void max3510x_convert_temp_results( max3510x_float_temp_results_t *p_float_results, const max3510x_temp_results_t * p_results )
 {
+#if defined(MAX35104)
+	//TODO: implement
+	(void)p_float_results;(void)p_results;
+#else
 	uint8_t i;
 	for(i=0;i<MAX3510X_TEMP_COUNT;i++)
 	{
 		p_float_results->temp[i] = max3510x_fixed_to_float( &p_results->temp[i] );
 		p_float_results->ave_temp[i] = max3510x_fixed_to_float( &p_results->ave_temp[i] );
 	}
+#endif
 }
 
 

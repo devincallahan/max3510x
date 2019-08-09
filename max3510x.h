@@ -116,7 +116,9 @@ typedef struct _max3510x_temp_results_t
 	uint8_t					start_register;
 #if defined(MAX35104)
 	max3510x_fixed_t		t1;
+	max3510x_fixed_t		reserved1;
 	max3510x_fixed_t		t2;
+	max3510x_fixed_t		reserved2;
 #else
 	max3510x_fixed_t		temp[4];
 #endif
@@ -131,7 +133,9 @@ typedef struct _max3510x_temp_results_t
 
 #if defined(MAX35104)
 	max3510x_fixed_t		t1_avg;
+	max3510x_fixed_t		reserved3;
 	max3510x_fixed_t		t2_avg;
+	max3510x_fixed_t		reserved4;
 #else
 	max3510x_fixed_t		ave_temp[4];
 #endif
